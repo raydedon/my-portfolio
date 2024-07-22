@@ -21,7 +21,7 @@ const Profile = () => {
                 gridGap: { xs: 24, md: 32 }
             }}>
 
-                <Avatar alt="Animesh Ray" src="/dp.jpeg" sx={{ width: 200, height: 200 }} />
+                <Avatar alt="Animesh Ray" src="/images/dp.jpeg" sx={{ width: 200, height: 200 }} />
                 <Typography variant="h3" sx={{ textAlign: 'center' }}>Hi, I am&nbsp;&nbsp;
                     <Typography sx={{ color: 'green', display: { xs: 'block', md: 'inline' } }} variant="inherit">
                         <Typewriter
