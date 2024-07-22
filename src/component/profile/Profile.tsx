@@ -1,8 +1,13 @@
 'use client';
-import { Avatar, Box, Container, Typography } from '@mui/material';
+import { Avatar, Box, Button, Container, Link, Typography } from '@mui/material';
 import { Typewriter } from 'react-simple-typewriter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import XIcon from '@mui/icons-material/X';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import ArticleIcon from '@mui/icons-material/Article';
 
-const Description = ['Animesh Ray.', 'a Javascript enthusiast.', 'a Father to two daughters.', 'a Story teller.']
+const Description = ['Animesh Ray.', 'a Javascript enthusiast.', 'Staff software engineer.', 'a Father to two daughters.', 'a Story teller.']
 const Profile = () => {
     return (
         <Box>
@@ -29,7 +34,22 @@ const Profile = () => {
                             delaySpeed={1000}/>
                     </Typography>
                 </Typography>
-                <Typography variant="h5" sx={{ textAlign: 'center' }}>A software developer with enterprenuer at heart. Expertise in several technologies, including NodeJS, ReactJS, NestJS, MySQL, and MongoDB, and can build apps while enjoying my passion for motorcycles.</Typography>
+                <Typography variant="h5" sx={{ textAlign: 'center', textWrap: 'balance' }}>I am currently spearheading the role of a Staff software engineer at a Cyber Insurance company, <b>Cowbell Cyber Pvt Ltd</b>, India. In my <b>14 years of experience</b> in mobile and web development, I have always worked in startups to build meaningful software products.</Typography>
+                <Box sx={{ display: 'flex', columnGap: '20px' }}>
+                    <Link href="https://www.instagram.com/animesh6127/" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
+                        <InstagramIcon fontSize="large"/>
+                    </Link>
+                    <Link href="https://x.com/raydedon" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
+                        <XIcon fontSize="large"/>
+                    </Link>
+                    <Link href="https://github.com/raydedon" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
+                        <GitHubIcon fontSize="large"/>
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/animesh-ray-wins/" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
+                        <LinkedInIcon fontSize="large"/>
+                    </Link>
+                    <Button variant="contained" startIcon={<ArticleIcon />} href="/assets/Animesh_Ray_Resume.pdf" rel="noreferrer" target="_blank">Resume</Button>
+                </Box>
             </Container>
         </Box>
     );

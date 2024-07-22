@@ -3,7 +3,7 @@ import {
     AppBar,
     Box,
     Button,
-    Divider, Drawer,
+    Drawer,
     IconButton,
     List,
     ListItem,
@@ -24,10 +24,6 @@ const NavBar = () => {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
-            </Typography>
-            <Divider />
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
@@ -64,7 +60,6 @@ const NavBar = () => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        MUI
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
