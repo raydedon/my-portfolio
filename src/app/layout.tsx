@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Animesh Ray - Javascript enthusiast & a Staff Engineer.',
     keywords: ['Next.js', 'React', 'JavaScript', 'nestjs', 'Postgres', 'react-native', 'javascript', 'typescript', 'nodejs'],
     openGraph: {
-        images: '/dp.jpeg',
+        images: '/images/dp.jpeg',
     }
 };
 
