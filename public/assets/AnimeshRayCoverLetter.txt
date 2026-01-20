@@ -1,40 +1,34 @@
 Animesh Ray
 
 +91-9552449305
-raydedon@gmail.com
+animeshraysucceeds@gmail.com
 
 Dear Recruiter,
 
 I went through the job description and about your company. I would love to be part of your team.
 
-I am a father to two doting daughters, storyteller and a Javascript enthusiast. I am currently spearheading the role of a Staff software Engineer at a Cyber Insurance company, Cowbell Cyber Pvt Ltd. In my 14 years of experience in mobile and web development, I have always worked in startups to build meaningful software products. As a full-stack developer, I have worn multiple hats to get things done, but react, javascript, and visualization excite me the most.
+I am a father to two doting daughters, storyteller and a Javascript enthusiast. I am currently spearheading the role of a Staff software Engineer at a company called Spotnana. Spotnana revolutionises business travel. In my 15 years of experience in mobile and web development, I have always worked in startups to build meaningful software products. As a full-stack developer, I have worn multiple hats to get things done, but react, javascript, and visualization excite me the most.
 
 I have B1/B2 visa approved for the USA.
 
 Following are achievements or accomplishments, which is worth mentioning:-
 
-1. Built a high performing team here at Cowbell Cyber. It includes actively hiring and mentoring team members.
+1. Role based access control implementation.
+2. Implemented AI based flight recommendation. 
 
-2. Optimized the performance of our customer facing web app. This involved the following steps:-
+3. Optimized the performance of our customer facing web app. This involved the following steps:-
 
-a. upgraded from hosting website from s3 to cloudflare CDN. This helped us in leveraging the benefit of http2 like server push, request multiplexing, and reduced header size.
+a. upgraded from hosting website from s3 to cloudflare CDN. This helped us in leveraging the benefits of http3 like using QUIC over UDP.
 
 b. iteratively improving the core web vitals score. there by leading to an improved SEO ranking.
 
-3. looked into the security aspect of the e-commerce application. Implemented CSP, Snyk scans.
+4. looked into the security aspect of the e-commerce application. Implemented CSP, Snyk scans.
 
-4. Created SSE(Server sent event) server in spring boot to build event driven real time data fetch for dashboards.
+5. Created SSE(Server sent event) server in spring boot to build event driven real time data fetch for dashboards.
 
-5. Led efforts to enhance unit test coverage, using Codecov and SonarQube to establish quality gates and boost code coverage.
+6. Led efforts to enhance unit test coverage, using Codecov and SonarQube to establish quality gates and boost code coverage.
 
-6. Utilised Sentry and New Relic to maintain industry- standard core web vitals, significantly improving SEO performance.
-
-7. Implemented Oauth2 to generate tokens for clients(Auth code, Implicit, and client credential grant types). So that third-party apps can integrate with us and fetch data on behalf of clients.
-
-8. SAML integration of our collaboration tool, so that our clients can single sign-on into our product(collaboration tool).
-
-9. Received Amazon voucher worth 10k, twice a year for writing the maximum amount of unit tests. This has helped us in writing stable and testable code. Implemented Sonarqube and codecove for code coverage.
-
+7. Utilised Sentry and New Relic to maintain industry- standard core web vitals, significantly improving SEO performance.
 How will I add value to your org:-
 
 1. I have B1/B2 call visa approved for USA. So I can easily commute to USA for any business needs.
