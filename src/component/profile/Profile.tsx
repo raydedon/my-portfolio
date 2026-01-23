@@ -34,7 +34,7 @@ const Profile = () => {
                             delaySpeed={1000}/>
                     </Typography>
                 </Typography>
-                <Typography variant="h5" sx={{ textAlign: 'center', textWrap: 'balance' }}>I am currently spearheading the role of a Staff software engineer at, <b>Spotnana</b>, India. The company promises to revolutionaise business travel. In my <b>15 years of experience</b> in mobile and web development, I have always worked in startups to build meaningful software products.</Typography>
+                <Typography variant="h5" sx={{ textAlign: 'center', textWrap: 'balance' }}>I am currently spearheading the role of a Staff software engineer at, <b>Spotnana</b>, India. The company promises to revolutionize business travel. In my <b>15 years of experience</b> in mobile and web development, I have always worked in startups to build meaningful software products.</Typography>
                 <Box sx={{ display: 'flex', columnGap: '20px' }}>
                     <Link href="https://www.instagram.com/animesh6127/" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
                         <InstagramIcon fontSize="large"/>
