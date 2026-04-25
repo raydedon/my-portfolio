@@ -1,93 +1,105 @@
-'use client';
-import {
-    AppBar,
-    Box,
-    Button,
-    Drawer,
-    IconButton,
-    List,
-    ListItem,
-    ListItemButton, ListItemText,
-    Toolbar,
-    Typography
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-const navItems = ['Home', 'About', 'Contact'];
-const drawerWidth = 240;
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Contact", href: "/#contact" },
+];
+
 const NavBar = () => {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const handleDrawerToggle = () => {
-        setMobileOpen((prevState) => !prevState);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  const handleNavClick = (href: string) => {
+    setMobileOpen(false);
+    if (href === pathname) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  };
 
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
+  return (
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        <div className="flex items-center justify-end px-4 h-16">
+          <button
+            className="sm:hidden p-2 text-gray-800"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="toggle navigation"
+          >
+            {mobileOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+          <div className="hidden sm:flex gap-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className="px-4 py-2 text-gray-800 hover:text-green-700 font-medium"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </nav>
 
-    return (
-        <>
-            <AppBar component="nav" position="fixed" sx={{
-                zIndex: 2000,
-                backgroundImage: 'none',
-                boxShadow: 'none',
-                bgcolor: 'transparent',
-                color: '#212121'
-            }}>
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                    >
-                    </Typography>
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#212121' }}>
-                                {item}
-                            </Button>
-                        ))}
-                    </Box>
-                </Toolbar>
-            </AppBar>
-            <nav>
-                <Drawer
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                >
-                    {drawer}
-                </Drawer>
-            </nav>
-        </>
-    );
-}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-40 sm:hidden">
+          <div
+            className="absolute inset-0 bg-black/30"
+            onClick={() => setMobileOpen(false)}
+          />
+          <div className="absolute left-0 top-0 bottom-0 w-60 bg-white shadow-lg pt-16">
+            <ul>
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="block w-full px-4 py-3 text-center hover:bg-gray-100"
+                    onClick={() => handleNavClick(item.href)}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default NavBar;

@@ -1,58 +1,107 @@
 'use client';
-import { Avatar, Box, Button, Container, Link, Typography } from '@mui/material';
+import Image from 'next/image';
 import { Typewriter } from 'react-simple-typewriter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import XIcon from '@mui/icons-material/X';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import ArticleIcon from '@mui/icons-material/Article';
 
-const Description = ['Animesh Ray.', 'a Javascript enthusiast.', 'Staff software engineer.', 'a Father to two daughters.', 'a Story teller.']
+const descriptions = [
+    'Animesh Ray.',
+    'a Javascript enthusiast.',
+    'Staff software engineer.',
+    'a Father to two daughters.',
+    'a Story teller.',
+];
+
 const Profile = () => {
     return (
-        <Box>
-            <Container maxWidth="md" sx={{
-                height: '100vh',
-                display: 'grid',
-                gridTemplateColumns: '1fr',
-                justifyItems: 'center',
-                alignItems: 'center',
-                alignContent: 'center',
-                gridGap: { xs: 24, md: 32 }
-            }}>
-
-                <Avatar alt="Animesh Ray" src="/images/dp.jpeg" sx={{ width: 200, height: 200 }} />
-                <Typography variant="h3" sx={{ textAlign: 'center' }}>Hi, I am&nbsp;&nbsp;
-                    <Typography sx={{ color: 'green', display: { xs: 'block', md: 'inline' } }} variant="inherit">
+        <section id="profile" className="min-h-screen flex items-center justify-center scroll-mt-24">
+            <div className="max-w-2xl mx-auto px-6 py-24 flex flex-col items-center gap-6 md:gap-8">
+                <Image
+                    src="/images/dp.jpeg"
+                    alt="Animesh Ray"
+                    width={200}
+                    height={200}
+                    className="rounded-full object-cover"
+                />
+                <h1 className="text-3xl md:text-4xl font-bold text-center">
+                    Hi, I am&nbsp;&nbsp;
+                    <span className="text-green-600 block md:inline">
                         <Typewriter
-                            words={Description}
+                            words={descriptions}
                             loop={false}
                             cursor
-                            cursorStyle='|'
+                            cursorStyle="|"
                             typeSpeed={70}
                             deleteSpeed={50}
-                            delaySpeed={1000}/>
-                    </Typography>
-                </Typography>
-                <Typography variant="h5" sx={{ textAlign: 'center', textWrap: 'balance' }}>I am currently spearheading the role of a Staff software engineer at, <b>Spotnana</b>, India. The company promises to revolutionize business travel. In my <b>15 years of experience</b> in mobile and web development, I have always worked in startups to build meaningful software products.</Typography>
-                <Box sx={{ display: 'flex', columnGap: '20px' }}>
-                    <Link href="https://www.instagram.com/animesh6127/" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
-                        <InstagramIcon fontSize="large"/>
-                    </Link>
-                    <Link href="https://x.com/raydedon" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
-                        <XIcon fontSize="large"/>
-                    </Link>
-                    <Link href="https://github.com/raydedon" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
-                        <GitHubIcon fontSize="large"/>
-                    </Link>
-                    <Link href="https://www.linkedin.com/in/animesh-ray-wins/" rel="noreferrer" target="_blank" sx={{ display: 'flex', justifyItems: 'center', alignItems: 'center' }}>
-                        <LinkedInIcon fontSize="large"/>
-                    </Link>
-                    <Button variant="contained" startIcon={<ArticleIcon />} href="/assets/Animesh_Ray_Resume.pdf" rel="noreferrer" target="_blank">Resume</Button>
-                </Box>
-            </Container>
-        </Box>
+                            delaySpeed={1000}
+                        />
+                    </span>
+                </h1>
+                <p className="text-xl text-center text-balance">
+                    I am currently spearheading the role of a Staff software engineer at,{' '}
+                    <strong>Spotnana</strong>, India. The company promises to revolutionize business
+                    travel. In my <strong>15 years of experience</strong> in mobile and web
+                    development, I have always worked in startups to build meaningful software
+                    products.
+                </p>
+                <div className="flex items-center gap-5">
+                    <a
+                        href="https://www.instagram.com/animesh6127/"
+                        rel="noreferrer"
+                        target="_blank"
+                        aria-label="Instagram"
+                        className="text-gray-800 hover:text-pink-600 transition-colors"
+                    >
+                        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://x.com/raydedon"
+                        rel="noreferrer"
+                        target="_blank"
+                        aria-label="X / Twitter"
+                        className="text-gray-800 hover:text-black transition-colors"
+                    >
+                        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://github.com/raydedon"
+                        rel="noreferrer"
+                        target="_blank"
+                        aria-label="GitHub"
+                        className="text-gray-800 hover:text-gray-500 transition-colors"
+                    >
+                        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                        </svg>
+                    </a>
+                    <a
+                        href="https://www.linkedin.com/in/animesh-ray-wins/"
+                        rel="noreferrer"
+                        target="_blank"
+                        aria-label="LinkedIn"
+                        className="text-gray-800 hover:text-blue-600 transition-colors"
+                    >
+                        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a
+                        href="/assets/Animesh_Ray_Resume.pdf"
+                        rel="noreferrer"
+                        target="_blank"
+                        className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded font-medium hover:bg-blue-700 transition-colors"
+                    >
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                        Resume
+                    </a>
+                </div>
+            </div>
+        </section>
     );
-}
+};
 
 export default Profile;
