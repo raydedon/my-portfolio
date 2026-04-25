@@ -5,6 +5,8 @@ export type BlogPost = {
     summary: string;
     tags: string[];
     hero: string;
+    previewUrl?: string;
+    showDiagram?: boolean;
     sections: {
         heading: string;
         paragraphs: string[];
@@ -16,6 +18,8 @@ export const blogPosts: BlogPost[] = [
         slug: 'microfrontends',
         title: 'Microfrontends with Turborepo and Vercel',
         date: 'Apr 2026',
+        previewUrl: 'https://turbo-repo-project-blogs.vercel.app',
+        showDiagram: true,
         summary:
             'How I split the users and blogs experiences into independently deployable frontends inside one Turborepo and shipped them cleanly on Vercel.',
         tags: ['Microfrontends', 'Turborepo', 'Vercel'],

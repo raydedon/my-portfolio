@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { toast } from 'sonner';
 
 const contactLinks = [
     {
@@ -30,21 +31,15 @@ const initialFormData = {
 const Contact = () => {
     const [formData, setFormData] = useState(initialFormData);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [statusMessage, setStatusMessage] = useState('');
-    const [statusType, setStatusType] = useState<'success' | 'error' | ''>('');
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsSubmitting(true);
-        setStatusMessage('');
-        setStatusType('');
 
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
 
@@ -55,14 +50,12 @@ const Contact = () => {
             }
 
             setFormData(initialFormData);
-            setStatusType('success');
-            setStatusMessage('Message sent successfully. I will get back to you soon.');
+            toast.success('Message sent! Animesh will get back to you soon.');
         } catch (error) {
-            setStatusType('error');
-            setStatusMessage(
+            toast.error(
                 error instanceof Error
                     ? error.message
-                    : 'Something went wrong while sending your message.'
+                    : 'Something went wrong. Please try again.'
             );
         } finally {
             setIsSubmitting(false);
@@ -163,7 +156,7 @@ const Contact = () => {
 
                         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                             <p className="text-sm leading-6 text-gray-500">
-                                Messages are delivered to `raydedon@gmail.com`.
+                                Your message goes straight to Animesh Ray.
                             </p>
                             <button
                                 type="submit"
@@ -174,17 +167,6 @@ const Contact = () => {
                             </button>
                         </div>
 
-                        {statusMessage ? (
-                            <p
-                                className={`mt-4 rounded-2xl px-4 py-3 text-sm font-medium ${
-                                    statusType === 'success'
-                                        ? 'bg-green-50 text-green-800'
-                                        : 'bg-red-50 text-red-700'
-                                }`}
-                            >
-                                {statusMessage}
-                            </p>
-                        ) : null}
                     </form>
 
                     <div className="flex flex-col gap-4 rounded-3xl border border-green-100 bg-green-50 p-6 md:p-8">
