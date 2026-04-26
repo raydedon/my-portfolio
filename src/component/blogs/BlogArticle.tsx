@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { BlogPost } from './blogData';
 import MicrofrontendsArchitecture from './MicrofrontendsArchitecture';
+import FederatedGraphQLArchitecture from './FederatedGraphQLArchitecture';
 
 type BlogArticleProps = {
     post: BlogPost;
@@ -48,7 +49,8 @@ const BlogArticle = ({ post }: BlogArticleProps) => {
                     )}
                 </div>
 
-                {post.showDiagram && <MicrofrontendsArchitecture />}
+                {post.diagram === 'microfrontends' && <MicrofrontendsArchitecture />}
+                {post.diagram === 'federated-graphql' && <FederatedGraphQLArchitecture />}
 
                 <div className="flex flex-col gap-8">
                     {post.sections.map((section) => (
