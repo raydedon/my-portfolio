@@ -2,11 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { House, NotebookPen, Mail } from "lucide-react";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Home",    href: "/",         icon: House },
+  { label: "Blogs",   href: "/blogs",    icon: NotebookPen },
+  { label: "Contact", href: "/#contact", icon: Mail },
 ];
 
 const NavBar = () => {
@@ -60,14 +61,15 @@ const NavBar = () => {
             )}
           </button>
           <div className="hidden sm:flex gap-1">
-            {navItems.map((item) => (
+            {navItems.map(({ label, href, icon: Icon }) => (
               <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => handleNavClick(item.href)}
-                className="px-4 py-2 text-gray-800 hover:text-green-700 font-medium"
+                key={label}
+                href={href}
+                onClick={() => handleNavClick(href)}
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-gray-800 hover:text-green-700 font-medium"
               >
-                {item.label}
+                <Icon size={15} aria-hidden="true" />
+                {label}
               </Link>
             ))}
           </div>
@@ -82,15 +84,15 @@ const NavBar = () => {
           />
           <div className="absolute left-0 top-0 bottom-0 w-60 bg-white shadow-lg pt-16">
             <ul>
-              {navItems.map((item) => (
-                <li key={item.label}>
+              {navItems.map(({ label, href, icon: Icon }) => (
+                <li key={label}>
                   <Link
-                    key={item.label}
-                    href={item.href}
-                    className="block w-full px-4 py-3 text-center hover:bg-gray-100"
-                    onClick={() => handleNavClick(item.href)}
+                    href={href}
+                    className="flex items-center gap-2 w-full px-4 py-3 hover:bg-gray-100"
+                    onClick={() => handleNavClick(href)}
                   >
-                    {item.label}
+                    <Icon size={16} aria-hidden="true" />
+                    {label}
                   </Link>
                 </li>
               ))}
