@@ -1,13 +1,13 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { House, NotebookPen, Mail } from "lucide-react";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { House, NotebookPen, Mail } from 'lucide-react';
 
 const navItems = [
-  { label: "Home",    href: "/",         icon: House },
-  { label: "Blogs",   href: "/blogs",    icon: NotebookPen },
-  { label: "Contact", href: "/#contact", icon: Mail },
+  { label: 'Home',    href: '/',         icon: House },
+  { label: 'Blogs',   href: '/blogs',    icon: NotebookPen },
+  { label: 'Contact', href: '/#contact', icon: Mail },
 ];
 
 const NavBar = () => {
@@ -17,7 +17,7 @@ const NavBar = () => {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     if (href === pathname) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
